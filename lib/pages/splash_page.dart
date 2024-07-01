@@ -22,11 +22,11 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: backgroundColor1,
       body: Center(
         child: Container(
-          width: 130,
-          height: 150,
+          width: 480,
+          height: 480,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/image_splash.png'),
+              image: AssetImage('assets/upb.png'),
             ),
           ),
         ),

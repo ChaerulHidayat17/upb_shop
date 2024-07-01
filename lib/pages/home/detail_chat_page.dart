@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:upb_shop/theme.dart';
+import 'package:upb_shop/widgets/chat_bubble.dart';
 
 class DetailChatPage extends StatelessWidget {
   const DetailChatPage({super.key});
@@ -21,7 +22,7 @@ class DetailChatPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Shoe Store',
+                  'Upb Store',
                   style: primaryTextStyle.copyWith(
                     fontWeight: medium,
                     fontSize: 14,
@@ -128,6 +129,9 @@ class DetailChatPage extends StatelessWidget {
                           hintText: 'Type Message...',
                           hintStyle: subtitleTextStyle,
                         ),
+                        style: TextStyle(
+                          color: backgroundColor6,
+                        ),
                       ),
                     ),
                   ),
@@ -146,13 +150,30 @@ class DetailChatPage extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          ChatBubble(
+            isSender: true,
+            text: 'Hi, This item is still available?',
+            hasProduct: true,
+          ),
+          ChatBubble(
+            isSender: false,
+            text: 'Good night, This item is only available in size 42 and 43',
+          ),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor3,
       appBar: header(),
       bottomNavigationBar: chatInput(),
-      body: Center(
-        child: Text('Chat Details Page'),
-      ),
+      body: content(),
     );
   }
 }
